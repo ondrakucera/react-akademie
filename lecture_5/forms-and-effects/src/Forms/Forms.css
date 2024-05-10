@@ -1,0 +1,10 @@
+.Forms table {
+	margin-top: 1rem;
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+}
+
+.Forms th, .Forms td {
+	border: 1px solid lightgray;
+	padding: 1rem;
+}
