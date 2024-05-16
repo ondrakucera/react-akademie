@@ -1,0 +1,4 @@
+.StudentCreateForm .table th,
+.StudentCreateForm .table td {
+	vertical-align: middle;
+}

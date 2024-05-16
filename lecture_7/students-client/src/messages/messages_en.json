@@ -1,0 +1,22 @@
+{
+	"studentList_title": "Student list",
+	"studentList_edit": "Edit",
+	"studentList_delete": "Delete",
+	"studentList_create": "Create new student",
+
+	"studentDetail_title": "Student detail",
+	"studentDetail_edit": "Edit {name}",
+
+	"studentEditForm_title": "Edit student",
+
+	"studentCreateForm_title": "Create student",
+
+	"name": "Name",
+	"firstName": "First name",
+	"lastName": "Last name",
+	"gender": "Gender",
+	"house": "House",
+	"year": "Year",
+	"back_to_student_list": "Back to student list",
+	"save": "Save"
+}
