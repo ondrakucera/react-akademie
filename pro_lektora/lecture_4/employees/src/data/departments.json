@@ -1,0 +1,10 @@
+[
+	{ "id": 1,  "name": "Vývoj" },
+	{ "id": 2,  "name": "Obchod" },
+	{ "id": 3,  "name": "Marketing" },
+	{ "id": 4,  "name": "Výzkum" },
+	{ "id": 5,  "name": "Design" },
+	{ "id": 6,  "name": "Účetnictví" },
+	{ "id": 7,  "name": "Lidské zdroje" },
+	{ "id": 8,  "name": "Péče o zákazníky" }
+]

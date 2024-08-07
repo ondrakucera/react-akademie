@@ -1,0 +1,28 @@
+.Employee-card {
+	width: 30rem;
+	border: 2px solid gray;
+	box-shadow: 4px 4px lightgray;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+}
+
+.Employee-avatar {
+	width: 100%;
+}
+
+.Employee-detail-container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+
+.Employee-detail-container :nth-child(odd) {
+	text-align: right;
+	color: gray;
+}
+
+.Employee-detail-container :nth-child(even) {
+	padding-left: 1rem;
+}

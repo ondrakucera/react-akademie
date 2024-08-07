@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+			crossorigin="anonymous"
+		/>
+		<link href="style.css" rel="stylesheet" />
+
+		<title>Student client: static</title>
+	</head>
+
+	<body>
+		<div id="root">
+			<h1>Edit student</h1>
+			<form>
+				<table class="table table-light table-bordered">
+					<tbody>
+						<tr>
+							<th><label for="first-name" class="form-label">First name</label></th>
+							<td><input id="first-name" name="first-name" class="form-control" value="Harry" /></td>
+						</tr>
+						<tr>
+							<th><label for="last-name" class="form-label">Last name</label></th>
+							<td><input id="last-name" name="last-name" class="form-control" value="Potter" /></td>
+						</tr>
+						<tr>
+							<th>Gender</th>
+							<td>
+								<label class="form-check-label"
+									><input type="radio" name="gender" class="form-check-input" value="M" checked="checked" /> Male</label
+								>
+								<label class="form-check-label"
+									><input type="radio" name="gender" class="form-check-input" value="F" /> Female</label
+								>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="house" class="form-label">House</label></th>
+							<td>
+								<select id="house" name="house" class="form-select">
+									<option value="GRYFFINDOR" selected="selected">Gryffindor</option>
+									<option value="HUFFLEPUFF">Hufflepuff</option>
+									<option value="RAVENCLAW">Ravenclaw</option>
+									<option value="SLYTHERIN">Slytherin</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><label for="year" class="form-label">Year</label></th>
+							<td>
+								<select id="year" name="year" class="form-select">
+									<option value="1">First</option>
+									<option value="2" selected="selected">Second</option>
+									<option value="3">Third</option>
+									<option value="4">Fourth</option>
+									<option value="5">Fifth</option>
+									<option value="6">Sixth</option>
+									<option value="7">Seventh</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2"><button class="btn btn-primary">Save</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+			<nav><a href="index.html">Back to student list</a></nav>
+		</div>
+	</body>
+</html>

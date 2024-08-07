@@ -1,0 +1,32 @@
+[
+	{
+		"userName": "alice",
+		"firstName": "Alice",
+		"lastName": "Veselá",
+		"password": "password1",
+		"age": 24,
+		"email": "alice@gmail.com",
+		"phone": "+420 111 222 333",
+		"address": {
+			"street": "Jindřišská",
+			"streetNumber": "16",
+			"city": "Praha",
+			"zipCode": "111 50"
+		}
+	},
+	{
+		"userName": "bob",
+		"firstName": "Robert",
+		"lastName": "Jelínek",
+		"password": "password2",
+		"age": 33,
+		"email": "bob@gmail.com",
+		"phone": "+420 222 333 444",
+		"address": {
+			"street": "Francouzská",
+			"streetNumber": "1",
+			"city": "Praha",
+			"zipCode": "101 00"
+		}
+	}
+]

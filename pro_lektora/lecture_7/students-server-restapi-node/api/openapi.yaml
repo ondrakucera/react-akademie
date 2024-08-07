@@ -1,0 +1,237 @@
+openapi: 3.0.1
+info:
+  description: Example REST API for working with students
+  title: Students
+  version: 1.0.0-SNAPSHOT
+servers:
+- url: /
+paths:
+  /codebooks/{codebookCode}:
+    get:
+      description: Obtains a list of `CodebookItem`s. The list is sorted by `order`.
+      operationId: getCodebookItems
+      parameters:
+      - description: Codebook code
+        explode: false
+        in: path
+        name: codebookCode
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/CodebookItem'
+                type: array
+          description: Successful response
+      summary: Obtains a list of items of a codebook
+      x-eov-operation-handler: controllers/DefaultController
+  /students:
+    get:
+      description: Obtains a list of `Student`s. The list is sorted by `lastName`
+        and then by `firstName`.
+      operationId: getStudents
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Student'
+                type: array
+          description: Successful response
+      summary: Obtains a list of students
+      x-eov-operation-handler: controllers/DefaultController
+    post:
+      description: Creates a `Student`.
+      operationId: postStudent
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        description: Student
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: int64
+                type: integer
+          description: Successful response
+      summary: Creates a student
+      x-codegen-request-body-name: student
+      x-eov-operation-handler: controllers/DefaultController
+  /students/{studentId}:
+    delete:
+      description: Deletes a `Student`.
+      operationId: deleteStudent
+      parameters:
+      - description: Student id
+        explode: false
+        in: path
+        name: studentId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "204":
+          description: Description
+      summary: Deletes a student
+      x-eov-operation-handler: controllers/DefaultController
+    get:
+      description: Obtains a `Student` by its id.
+      operationId: getStudent
+      parameters:
+      - description: Student id
+        explode: false
+        in: path
+        name: studentId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+          description: Successful response
+        "404":
+          description: When the student cannot be found
+      summary: Obtains a student
+      x-eov-operation-handler: controllers/DefaultController
+    put:
+      description: Saves a `Student`.
+      operationId: putStudent
+      parameters:
+      - description: Student id
+        explode: false
+        in: path
+        name: studentId
+        required: true
+        schema:
+          format: int64
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        description: Student
+        required: true
+      responses:
+        "204":
+          description: Successful response
+      summary: Saves a student
+      x-codegen-request-body-name: student
+      x-eov-operation-handler: controllers/DefaultController
+components:
+  parameters:
+    studentId:
+      description: Student id
+      explode: false
+      in: path
+      name: studentId
+      required: true
+      schema:
+        format: int64
+        type: integer
+      style: simple
+  requestBodies:
+    student:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Student'
+      description: Student
+      required: true
+  schemas:
+    CodebookItem:
+      example:
+        code: code
+        names:
+          key: names
+        order: 0
+      properties:
+        code:
+          description: Code
+          type: string
+        names:
+          additionalProperties:
+            type: string
+          description: "Map of (language code, codebook item localization) pairs"
+          type: object
+        order:
+          description: Order of the item within all items of the codebook
+          type: integer
+      required:
+      - code
+      - names
+      - order
+      type: object
+    Gender:
+      enum:
+      - F
+      - M
+      type: string
+    House:
+      enum:
+      - GRYFFINDOR
+      - HUFFLEPUFF
+      - RAVENCLAW
+      - SLYTHERIN
+      type: string
+    Student:
+      description: Student
+      example:
+        firstName: firstName
+        lastName: lastName
+        gender: null
+        year: null
+        id: 0
+        house: null
+      properties:
+        id:
+          description: Id
+          format: int64
+          type: integer
+        firstName:
+          description: First name of the student
+          type: string
+        lastName:
+          description: Last name of the student
+          type: string
+        gender:
+          $ref: '#/components/schemas/Gender'
+        house:
+          $ref: '#/components/schemas/House'
+        year:
+          $ref: '#/components/schemas/Year'
+      required:
+      - firstName
+      - gender
+      - house
+      - lastName
+      - year
+      type: object
+    Year:
+      enum:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - "5"
+      - "6"
+      - "7"
+      type: string

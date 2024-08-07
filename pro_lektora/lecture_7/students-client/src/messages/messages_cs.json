@@ -1,0 +1,22 @@
+{
+	"studentList_title": "Seznam studentů",
+	"studentList_edit": "Upravit",
+	"studentList_delete": "Smazat",
+	"studentList_create": "Založit nového studenta",
+
+	"studentDetail_title": "Detail studenta",
+	"studentDetail_edit": "Upravit studenta {name}",
+
+	"studentEditForm_title": "Upravit studenta",
+
+	"studentCreateForm_title": "Vytvořit studenta",
+
+	"name": "Jméno",
+	"firstName": "Křestní jméno",
+	"lastName": "Příjmení",
+	"gender": "Pohlaví",
+	"house": "Kolej",
+	"year": "Ročník",
+	"back_to_student_list": "Zpět na seznam studentů",
+	"save": "Uložit"
+}
