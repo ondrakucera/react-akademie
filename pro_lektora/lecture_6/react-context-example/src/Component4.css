@@ -1,0 +1,20 @@
+.Component4 {
+	border: 1px solid turquoise;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.Component4 table {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+}
+
+.Component4 th {
+	border: 1px solid lightgray;
+	padding: 0.5rem;
+}
+
+.Component4 td {
+	border: 1px solid lightgray;
+	padding: 0.5rem;
+}

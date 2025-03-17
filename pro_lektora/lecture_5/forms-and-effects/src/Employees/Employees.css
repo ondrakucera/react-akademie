@@ -1,0 +1,15 @@
+.Employees-table {
+	margin-top: 1rem;
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+}
+
+.Employees-table th {
+	border: 1px solid lightgray;
+	padding: 1rem;
+}
+
+.Employees-table td {
+	border: 1px solid lightgray;
+	padding: 0.5rem;
+}

@@ -1,0 +1,4 @@
+.StudentEditForm .table th,
+.StudentEditForm .table td {
+	vertical-align: middle;
+}

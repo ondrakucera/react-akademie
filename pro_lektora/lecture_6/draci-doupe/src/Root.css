@@ -1,0 +1,32 @@
+.Root {
+	max-width: 60rem;
+	margin: 1rem auto;
+}
+
+.Root > header {
+	border: 1px solid lightgray;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Root > header nav ul {
+	display: flex;
+	margin: 0;
+	padding-left: 0;
+}
+.Root > header nav li {
+	list-style-type: none;
+	padding: 0.5rem 1rem;
+}
+.Root > header nav a {
+	text-decoration: none;
+	color: blue;
+}
+.Root > header nav a:hover {
+	text-decoration: underline;
+}
+
+.LanguageSelectorContainer {
+	padding: 0.5rem 1rem;
+}
