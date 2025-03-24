@@ -1,7 +1,7 @@
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import App from "./App.jsx";
 import { Employees } from "./Employees/Employees";
 import { Forms } from "./Forms/Forms";
 import { PublicHolidays } from "./PublicHolidays/PublicHolidays";
@@ -30,5 +30,4 @@ const router = createBrowserRouter([
 	},
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router} />);
+createRoot(document.getElementById("root")).render(<RouterProvider router={router} />);
