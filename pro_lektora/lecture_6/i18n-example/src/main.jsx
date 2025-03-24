@@ -1,8 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import { IntlProvider } from "react-intl";
 import "./index.css";
-import App from "./App";
+import App from "./App.jsx";
 
 const messages = {
 	cs: {
@@ -17,8 +16,7 @@ const messages = {
 	},
 };
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+createRoot(document.getElementById("root")).render(
 	<IntlProvider locale="cs" messages={messages.cs}>
 		<App />
 	</IntlProvider>
