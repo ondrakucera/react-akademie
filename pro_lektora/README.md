@@ -37,8 +37,8 @@ tomto adresáři (případně zcela stejný).
 
 Obsahem lekce je vytvoření první aplikace v Reactu:
 
-- Vytvoření prázdné aplikace (aktuálně pomocí [Create React App](https://create-react-app.dev/)) a stručné představení
-  jednotlivých druhů souborů, ze kterých se aplikace skládá.
+- Vytvoření prázdné aplikace (aktuálně pomocí [Vite](https://vite.dev/)) a stručné představení jednotlivých druhů
+  souborů, ze kterých se aplikace skládá.
 - Představení konceptu komponenty a tvorba prvních komponent.
 - Představení JSX a jeho používání při tvorbě komponent.
 

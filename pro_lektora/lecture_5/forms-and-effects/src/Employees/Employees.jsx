@@ -8,9 +8,9 @@ export const Employees = () => {
 
 	useEffect(() => {
 		const fetchAndSetData = async () => {
-			const employeesResponse = await fetch("http://localhost:3000/data/employees.json");
+			const employeesResponse = await fetch("http://localhost:5173/data/employees.json");
 			setEmployees(await employeesResponse.json());
-			const departmentsResponse = await fetch("http://localhost:3000/data/departments.json");
+			const departmentsResponse = await fetch("http://localhost:5173/data/departments.json");
 			setDepartments(await departmentsResponse.json());
 		};
 
