@@ -1,0 +1,23 @@
+.App-navigation {
+	background-color: white;
+}
+
+.App-navigation ul {
+	margin-top: 0;
+	padding-left: 0.5rem;
+	display: flex;
+}
+
+.App-navigation li {
+	list-style-type: none;
+	padding: 0.5rem 1rem;
+}
+
+.App-navigation li a {
+	color: rgb(50, 50, 50);
+	text-decoration: none;
+	font-weight: bold;
+}
+.App-navigation li a:hover {
+	color: rgb(0, 180, 205);
+}
