@@ -1,0 +1,10 @@
+.Employees-table {
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+}
+
+.Employees-table th,
+.Employees-table td {
+	border: 1px solid lightgray;
+	padding: 1rem;
+}
