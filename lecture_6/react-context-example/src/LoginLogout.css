@@ -1,0 +1,22 @@
+.LoginLogout {
+	margin-bottom: 4rem;
+}
+
+.LoginLogout table {
+	margin-top: 1rem;
+	border: 1px solid lightgray;
+	border-collapse: collapse;
+}
+
+.LoginLogout th {
+	border: 1px solid lightgray;
+	padding: 1rem;
+}
+
+.LoginLogout td {
+	border: 1px solid lightgray;
+	padding: 0.5rem;
+}
+.LoginLogout td[colspan="2"] {
+	text-align: center;
+}
