@@ -1,0 +1,206 @@
+openapi: 3.0.1
+info:
+    title: Students
+    description: Example REST API for working with students
+    version: 1.0.0-SNAPSHOT
+paths:
+    /codebooks/{codebookCode}:
+        get:
+            summary: Obtains a list of items of a codebook
+            description: Obtains a list of `CodebookItem`s. The list is sorted by `order`.
+            operationId: getCodebookItems
+            parameters:
+                -   name: codebookCode
+                    in: path
+                    description: Codebook code
+                    required: true
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: Successful response
+                    content:
+                        'application/json':
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/CodebookItem'
+    /students:
+        get:
+            summary: Obtains a list of students
+            description: Obtains a list of `Student`s. The list is sorted by `lastName` and then by `firstName`.
+            operationId: getStudents
+            responses:
+                200:
+                    description: Successful response
+                    content:
+                        'application/json':
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Student'
+        post:
+            summary: Creates a student
+            description: Creates a `Student`.
+            operationId: postStudent
+            requestBody:
+                description: Student
+                content:
+                    'application/json':
+                        schema:
+                            $ref: '#/components/schemas/Student'
+                required: true
+            responses:
+                200:
+                    description: Successful response
+                    content:
+                        'application/json':
+                            schema:
+                                type: integer
+                                format: int64
+            x-codegen-request-body-name: student
+    /students/{studentId}:
+        get:
+            summary: Obtains a student
+            description: Obtains a `Student` by its id.
+            operationId: getStudent
+            parameters:
+                -   name: studentId
+                    in: path
+                    description: Student id
+                    required: true
+                    schema:
+                        type: integer
+                        format: int64
+            responses:
+                200:
+                    description: Successful response
+                    content:
+                        'application/json':
+                            schema:
+                                $ref: '#/components/schemas/Student'
+                404:
+                    description: When the student cannot be found
+        put:
+            summary: Saves a student
+            description: Saves a `Student`.
+            operationId: putStudent
+            parameters:
+                -   name: studentId
+                    in: path
+                    description: Student id
+                    required: true
+                    schema:
+                        type: integer
+                        format: int64
+            requestBody:
+                description: Student
+                content:
+                    'application/json':
+                        schema:
+                            $ref: '#/components/schemas/Student'
+                required: true
+            responses:
+                204:
+                    description: Successful response
+            x-codegen-request-body-name: student
+        delete:
+            summary: Deletes a student
+            description: Deletes a `Student`.
+            operationId: deleteStudent
+            parameters:
+                -   name: studentId
+                    in: path
+                    description: Student id
+                    required: true
+                    schema:
+                        type: integer
+                        format: int64
+            responses:
+                204:
+                    description: Description
+components:
+    schemas:
+        CodebookItem:
+            type: object
+            required:
+                - code
+                - names
+                - order
+            properties:
+                code:
+                    type: string
+                    description: Code
+                names:
+                    type: object
+                    description: Map of (language code, codebook item localization) pairs
+                    additionalProperties:
+                        type: string
+                order:
+                    description: Order of the item within all items of the codebook
+                    type: integer
+        Gender:
+            type: string
+            enum:
+                - F
+                - M
+        House:
+            type: string
+            enum:
+                - GRYFFINDOR
+                - HUFFLEPUFF
+                - RAVENCLAW
+                - SLYTHERIN
+        Student:
+            type: object
+            required:
+                - firstName
+                - lastName
+                - gender
+                - house
+                - year
+            properties:
+                id:
+                    type: integer
+                    description: Id
+                    format: int64
+                firstName:
+                    type: string
+                    description: First name of the student
+                lastName:
+                    type: string
+                    description: Last name of the student
+                gender:
+                    $ref: '#/components/schemas/Gender'
+                house:
+                    $ref: '#/components/schemas/House'
+                year:
+                    $ref: '#/components/schemas/Year'
+            description: Student
+        Year:
+            type: string
+            enum:
+                - 1
+                - 2
+                - 3
+                - 4
+                - 5
+                - 6
+                - 7
+    parameters:
+        studentId:
+            name: studentId
+            in: path
+            description: Student id
+            required: true
+            schema:
+                type: integer
+                format: int64
+    requestBodies:
+        student:
+            description: Student
+            content:
+                'application/json':
+                    schema:
+                        $ref: '#/components/schemas/Student'
+            required: true

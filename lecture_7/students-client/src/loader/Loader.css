@@ -1,0 +1,17 @@
+.Loader {
+	border: 1rem solid lightgray;
+	border-top: 1rem solid turquoise;
+	border-radius: 50%;
+	width: 8rem;
+	height: 8rem;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

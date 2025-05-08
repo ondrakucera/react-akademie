@@ -1,0 +1,8 @@
+.StudentList .table th,
+.StudentList .table td {
+	vertical-align: middle;
+}
+
+.StudentList .student-delete {
+	margin-left: 0.5rem;
+}

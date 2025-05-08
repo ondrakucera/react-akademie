@@ -1,0 +1,49 @@
+body {
+	background-color: #f8f9fa;
+	margin: 2rem auto;
+	max-width: 50rem;
+}
+
+#root {
+	background-color: white;
+	padding: 1.5rem;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+h1 {
+	margin-bottom: 1.5rem;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+.table th,
+.table td {
+	vertical-align: middle;
+}
+
+nav {
+	margin-top: 1.5rem;
+}
+nav a {
+	margin-left: 1rem;
+}
+nav a:first-child {
+	margin-left: 0;
+}
+
+.form-check-label {
+	margin-left: 1rem;
+}
+.form-check-label:first-child {
+	margin-left: 0.5rem;
+}
+
+button.student-delete {
+	margin-left: 0.5rem;
+}

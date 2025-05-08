@@ -1,0 +1,12 @@
+body {
+	background-color: #f8f9fa;
+	margin: 2rem auto;
+	max-width: 50rem;
+}
+
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
