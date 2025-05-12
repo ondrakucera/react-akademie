@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader } from "../Loader/Loader";
 
 export const PublicHolidays = () => {
@@ -7,7 +6,7 @@ export const PublicHolidays = () => {
 
 	useEffect(() => {
 		const fetchAndSetHolidays = async () => {
-			const response = await fetch("https://date.nager.at/api/v3/PublicHolidays/2024/CZ");
+			const response = await fetch(`https://date.nager.at/api/v3/PublicHolidays/2025/CZ`);
 			setHolidays(await response.json());
 		};
 
@@ -17,7 +16,7 @@ export const PublicHolidays = () => {
 	return (
 		<main>
 			<header>
-				<h1>Státní svátky v roce 2024</h1>
+				<h1>Státní svátky v roce 2025</h1>
 			</header>
 			<section>
 				{holidays === undefined ? (
