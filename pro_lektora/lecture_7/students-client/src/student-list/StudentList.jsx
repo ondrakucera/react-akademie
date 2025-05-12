@@ -1,18 +1,15 @@
 import { useContext, useEffect, useState } from "react";
-import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 import { Heading1 } from "../basic/Heading1";
 import { Navigation } from "../basic/Navigation";
 import { getCodebookItemName } from "../codebook/codebook";
 import { CodebooksContext } from "../codebook/CodebooksContext";
-import { useLanguageContext } from "../language/LanguageContext";
 import { Loader } from "../loader/Loader";
 import { deleteStudent, fetchStudents } from "../rest-api-client/rest-api-client";
 
 import "./StudentList.css";
 
 export const StudentList = () => {
-	const { language } = useLanguageContext();
 	const codebooks = useContext(CodebooksContext);
 	const [students, setStudents] = useState();
 
@@ -25,17 +22,18 @@ export const StudentList = () => {
 		fetchAndSetStudents();
 	}, []);
 
-	const handleDeleteButton = async (id) => {
-		setStudents(undefined);
-		await deleteStudent(id);
-		await fetchAndSetStudents();
+	const handleDeleteButton = async (student) => {
+		const confirmation = confirm(`Do you really want to delete ${student.firstName} ${student.lastName}?`);
+		if (confirmation) {
+			await deleteStudent(student.id);
+			setStudents(undefined);
+			await fetchAndSetStudents();
+		}
 	};
 
 	return (
 		<div className="StudentList">
-			<Heading1>
-				<FormattedMessage id="studentList_title" />
-			</Heading1>
+			<Heading1>List of students</Heading1>
 			{students === undefined ? (
 				<Loader />
 			) : (
@@ -43,18 +41,10 @@ export const StudentList = () => {
 					<table className="table table-light table-striped table-bordered">
 						<thead>
 							<tr>
-								<th>
-									<FormattedMessage id="name" />
-								</th>
-								<th>
-									<FormattedMessage id="gender" />
-								</th>
-								<th>
-									<FormattedMessage id="house" />
-								</th>
-								<th>
-									<FormattedMessage id="year" />
-								</th>
+								<th>Name</th>
+								<th>Gender</th>
+								<th>House</th>
+								<th>Year</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -66,19 +56,17 @@ export const StudentList = () => {
 											{student.firstName} {student.lastName}
 										</Link>
 									</td>
-									<td>{getCodebookItemName(codebooks.gender, student.gender, language)}</td>
-									<td>{getCodebookItemName(codebooks.house, student.house, language)}</td>
-									<td>{getCodebookItemName(codebooks.year, student.year, language)}</td>
+									<td>{getCodebookItemName(codebooks.gender, student.gender)}</td>
+									<td>{getCodebookItemName(codebooks.house, student.house)}</td>
+									<td>{getCodebookItemName(codebooks.year, student.year)}</td>
 									<td>
-										<Link to={`/students/${student.id}/edit`}>
-											<FormattedMessage id="studentList_edit" />
-										</Link>{" "}
+										<Link to={`/students/${student.id}/edit`}>Edit</Link>{" "}
 										<button
 											type="button"
-											onClick={() => handleDeleteButton(student.id)}
+											onClick={() => handleDeleteButton(student)}
 											className="btn btn-danger student-delete"
 										>
-											<FormattedMessage id="studentList_delete" />
+											Delete
 										</button>
 									</td>
 								</tr>
@@ -86,9 +74,7 @@ export const StudentList = () => {
 						</tbody>
 					</table>
 					<Navigation>
-						<Link to="/students/create">
-							<FormattedMessage id="studentList_create" />
-						</Link>
+						<Link to="/students/create">Create new student</Link>
 					</Navigation>
 				</>
 			)}

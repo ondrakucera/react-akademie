@@ -1,17 +1,14 @@
 import { useContext, useEffect, useState } from "react";
-import { FormattedMessage } from "react-intl";
 import { Link, useParams } from "react-router-dom";
 import { Heading1 } from "../basic/Heading1";
 import { Navigation } from "../basic/Navigation";
 import { getCodebookItemName } from "../codebook/codebook";
 import { CodebooksContext } from "../codebook/CodebooksContext";
-import { useLanguageContext } from "../language/LanguageContext";
 import { Loader } from "../loader/Loader";
 import { fetchStudent } from "../rest-api-client/rest-api-client";
 
 export const StudentDetail = () => {
 	const { id } = useParams();
-	const { language } = useLanguageContext();
 	const codebooks = useContext(CodebooksContext);
 	const [student, setStudent] = useState();
 
@@ -26,9 +23,7 @@ export const StudentDetail = () => {
 
 	return (
 		<div className="StudentDetail">
-			<Heading1>
-				<FormattedMessage id="studentDetail_title" />
-			</Heading1>
+			<Heading1>Student detail</Heading1>
 			{student === undefined ? (
 				<Loader />
 			) : (
@@ -36,34 +31,29 @@ export const StudentDetail = () => {
 					<table className="table table-light table-bordered">
 						<tbody>
 							<tr>
-								<th><FormattedMessage id="name" /></th>
+								<th>Name</th>
 								<td>
 									{student.firstName} {student.lastName}
 								</td>
 							</tr>
 							<tr>
-								<th><FormattedMessage id="gender" /></th>
-								<td>{getCodebookItemName(codebooks.gender, student.gender, language)}</td>
+								<th>Gender</th>
+								<td>{getCodebookItemName(codebooks.gender, student.gender)}</td>
 							</tr>
 							<tr>
-								<th><FormattedMessage id="house" /></th>
-								<td>{getCodebookItemName(codebooks.house, student.house, language)}</td>
+								<th>House</th>
+								<td>{getCodebookItemName(codebooks.house, student.house)}</td>
 							</tr>
 							<tr>
-								<th><FormattedMessage id="year" /></th>
-								<td>{getCodebookItemName(codebooks.year, student.year, language)}</td>
+								<th>Year</th>
+								<td>{getCodebookItemName(codebooks.year, student.year)}</td>
 							</tr>
 						</tbody>
 					</table>
 					<Navigation>
-						<Link to="/">
-							<FormattedMessage id="back_to_student_list" />
-						</Link>{" "}
+						<Link to="/">Back to student list</Link>{" "}
 						<Link to={`/students/${student.id}/edit`}>
-							<FormattedMessage
-								id="studentDetail_edit"
-								values={{ name: `${student.firstName} ${student.lastName}` }}
-							/>
+							Edit {student.firstName} {student.lastName}
 						</Link>
 					</Navigation>
 				</>
