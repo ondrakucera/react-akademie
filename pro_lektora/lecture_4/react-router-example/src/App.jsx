@@ -4,7 +4,7 @@ import { ReactAcademy } from "./ReactAcademy";
 import { ReactGirls } from "./ReactGirls";
 
 function App() {
-	const [clickedLinkTarget, setClickedLinkTarget] = useState();
+	const [clickedLinkTarget, setClickedLinkTarget] = useState(undefined);
 
 	const handleLinkClick = (event, component) => {
 		event.preventDefault();
@@ -18,7 +18,7 @@ function App() {
 					<ReactGirls />
 					<p>
 						<a href="." onClick={(event) => handleLinkClick(event, ReactAcademy)}>
-							Také pořádáme akademie.
+							Aktuálně nám běží React akademie.
 						</a>
 					</p>
 				</>
