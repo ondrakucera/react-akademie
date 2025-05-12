@@ -197,10 +197,10 @@ components:
       example:
         firstName: firstName
         lastName: lastName
-        gender: null
-        year: null
+        gender: F
+        year: "1"
         id: 0
-        house: null
+        house: GRYFFINDOR
       properties:
         id:
           description: Id
