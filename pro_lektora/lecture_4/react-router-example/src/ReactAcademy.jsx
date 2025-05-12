@@ -1,10 +1,9 @@
 export const ReactAcademy = () => (
 	<>
-		<h1>Program React Akademie</h1>
+		<h1>React akademie</h1>
 		<p>
-			V React akademii se dozvíte co je to React, jak tvořit komponenty a skládat z nich aplikaci, předávání dat
-			komponentám (props), stav komponent (useState), navigace mezi stránkami (React Router), komunikace se serverem
-			(useEffect, fetch), kontext (useContext), a vytvoříte si aplikaci charakteru CRUD.
+			Objev kouzlo knihovny React a nauč se tvořit interaktivní webové aplikace. Akademie tě provede od základů až po
+			tvorbu vlastních komponent a použití stavů.
 		</p>
 	</>
 );
