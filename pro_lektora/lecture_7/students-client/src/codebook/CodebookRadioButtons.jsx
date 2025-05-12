@@ -1,6 +1,6 @@
 import "./CodebookRadioButtons.css";
 
-export const CodebookRadioButtons = ({ value, codebook, language, onChange }) => (
+export const CodebookRadioButtons = ({ value, codebook, onChange }) => (
 	<div className="CodebookRadioButtonsContainer">
 		{codebook.map((codebookItem) => (
 			<span key={codebookItem.code}>
@@ -12,7 +12,7 @@ export const CodebookRadioButtons = ({ value, codebook, language, onChange }) =>
 						onChange={onChange}
 						className="form-check-input"
 					/>{" "}
-					{codebookItem.names[language] ?? codebookItem.code}
+					{codebookItem.names.en}
 				</label>{" "}
 			</span>
 		))}
