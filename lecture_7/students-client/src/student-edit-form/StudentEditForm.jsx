@@ -43,7 +43,6 @@ export const StudentEditForm = () => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		setStudent(undefined);
 		await updateStudent(student);
 		navigate(`/students/${student.id}`);
 	};

@@ -25,8 +25,8 @@ export const StudentList = () => {
 	const handleDeleteButton = async (student) => {
 		const confirmation = confirm(`Do you really want to delete ${student.firstName} ${student.lastName}?`);
 		if (confirmation) {
-			setStudents(undefined);
 			await deleteStudent(student.id);
+			setStudents(undefined);
 			await fetchAndSetStudents();
 		}
 	};
