@@ -1,11 +1,10 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Loader } from "../Loader/Loader";
 
-const YEARS = ["2020", "2021", "2022", "2023", "2024"];
+const YEARS = ["2025", "2024", "2023", "2022", "2021"];
 
 export const PublicHolidaysImproved = () => {
-	const [year, setYear] = useState("2024");
+	const [year, setYear] = useState("2025");
 	const [holidays, setHolidays] = useState();
 
 	useEffect(() => {
@@ -25,12 +24,14 @@ export const PublicHolidaysImproved = () => {
 	return (
 		<main>
 			<header>
-				<h1>Státní svátky v roce 2024</h1>
+				<h1>Státní svátky</h1>
 			</header>
 			<section>
 				<select value={year} onChange={handleYearChange}>
 					{YEARS.map((iterationYear) => (
-						<option key={iterationYear}>{iterationYear}</option>
+						<option key={iterationYear} value={iterationYear}>
+							{iterationYear}
+						</option>
 					))}
 				</select>
 			</section>

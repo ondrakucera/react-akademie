@@ -35,12 +35,7 @@ export const Forms = () => {
 							<label htmlFor="first-name">Křestní jméno</label>
 						</th>
 						<td>
-							<input
-								type="text"
-								id="first-name"
-								value={firstName}
-								onChange={handleFirstNameChange}
-							/>
+							<input type="text" id="first-name" value={firstName} onChange={handleFirstNameChange} />
 						</td>
 					</tr>
 					<tr>
@@ -48,12 +43,7 @@ export const Forms = () => {
 							<label htmlFor="last-name">Příjmení</label>
 						</th>
 						<td>
-							<input
-								type="text"
-								id="last-name"
-								value={lastName}
-								onChange={handleLastNameChange}
-							/>
+							<input type="text" id="last-name" value={lastName} onChange={handleLastNameChange} />
 						</td>
 					</tr>
 					<tr>
@@ -61,12 +51,7 @@ export const Forms = () => {
 							<label htmlFor="age">Věk</label>
 						</th>
 						<td>
-							<input
-								type="number"
-								id="age"
-								value={age}
-								onChange={handleAgeChange}
-							/>
+							<input type="number" id="age" value={age} onChange={handleAgeChange} />
 						</td>
 					</tr>
 					<tr>
@@ -106,12 +91,10 @@ export const Forms = () => {
 			<table>
 				<tbody>
 					<tr>
-						<th>Křestní jméno</th>
-						<td>{firstName}</td>
-					</tr>
-					<tr>
-						<th>Příjmení</th>
-						<td>{lastName}</td>
+						<th>Celé jméno</th>
+						<td>
+							{firstName} {lastName}
+						</td>
 					</tr>
 					<tr>
 						<th>Je uživatel plnoletý?</th>
