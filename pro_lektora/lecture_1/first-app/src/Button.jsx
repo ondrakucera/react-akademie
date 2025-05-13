@@ -1,9 +1,7 @@
 export const Button = () => {
-  const name = 'Ondra';
+	const handleClick = () => {
+		console.log("Button was clicked!");
+	};
 
-  const onButtonClick = () => {
-    console.log('Button clicked');
-  };
-
-  return <button onClick={onButtonClick}>{name}</button>;
+	return <button onClick={handleClick}>Click me!</button>;
 };

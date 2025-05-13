@@ -1,5 +1,5 @@
 export const FirstComponent = () => {
-  const componentName = 'FirstComponent';
+	const name = "Jonas";
 
-  return <h1 className='App'>My very first component, {componentName}</h1>;
+	return <h1>Hello, {name}</h1>;
 };
