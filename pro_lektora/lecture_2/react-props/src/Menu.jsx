@@ -1,13 +1,19 @@
 export const Menu = () => {
-	const menu = ["domů", "o nás", "kontakt"];
+	const textHeader = "Hello world";
+	const menuItems = ["Prvni", "Druhy", "Treti"];
+	const handleClick = () => {
+		console.log(textHeader);
+	};
 
 	return (
-		<div>
+		<>
+			<h1>{textHeader}</h1>
 			<ul>
-				{menu.map((item) => (
+				{menuItems.map((item) => (
 					<li key={item}>{item}</li>
 				))}
 			</ul>
-		</div>
+			<button onClick={handleClick}>Click me!</button>
+		</>
 	);
 };
