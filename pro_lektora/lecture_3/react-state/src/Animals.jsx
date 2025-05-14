@@ -1,22 +1,27 @@
+import { Button } from "./Button";
 import { useState } from "react";
-export const Animals = () => {
-	const [animals, setAnimals] = useState(["dog"]);
-	const [inputValue, setInputValue] = useState("");
 
-	const handleAddAnimal = () => {
-		setAnimals([...animals, inputValue]);
-		setInputValue("");
+export const Animals = () => {
+	const animalList = ["Pes", "Kočka", "Tygr", "Mravenec"];
+	const [animals, setAnimals] = useState(["Pes"]);
+
+	const handleClick = (animal) => {
+		const newAnimals = [...animals, animal];
+
+		setAnimals(newAnimals);
 	};
 
 	return (
-		<div>
+		<>
 			<ul>
-				{animals.map((animal) => (
-					<li key={animal}>{animal}</li>
+				{animals.map((animal, index) => (
+					/* Index se většinou nehodí k použití pro key. Key ale musí být unikátní v poli. To pro více zvířat nemusí platit, a proto volím index jako key. */
+					<li key={index}>{animal}</li>
 				))}
 			</ul>
-			<input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-			<button onClick={handleAddAnimal}>Add animal</button>
-		</div>
+			{animalList.map((animal) => (
+				<Button key={animal} onClickFunction={() => handleClick(animal)} name={`Přidej zvíře: ${animal}`} />
+			))}
+		</>
 	);
 };
